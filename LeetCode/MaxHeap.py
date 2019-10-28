@@ -75,7 +75,7 @@ class MaxHeap:
 
     # PRIVATE
     def printHeap(self):
-        return(str(self.heap[0:len(self.heap)]))
+        print(str(self.heap[0:len(self.heap)]))
 
 
 # m = MaxHeap([50, 30, 20])
