@@ -9,24 +9,33 @@ class TreeNode:
 class Solution:
     def levelOrder(self, root):
 
-        stack = [root]
-        levelArray = [[root.val]]
+        allRows = []
+        if root:
+            que = [root]
+        else:
+            return allRows
 
-        while(len(stack) > 0):
-            curNode = stack.pop()
-            print(curNode.val)
-            if curNode.left or curNode.right:
-                stack.append(curNode.left)
-                stack.append(curNode.right)
-                children = [curNode.left.val, curNode.right.val]
-                print(children[0], children[1])
-                levelArray.append(children)
+        while que:
+            lenOfRow = len(que)
+            oneRow = []
+            for _ in range(0, lenOfRow):
+                node = que.pop(0)
+                oneRow.append(node.val)
+                if node.left is not None:
+                    que.append(node.left)
+                if node.right is not None:
+                    que.append(node.right)
+            print("One Row: ", oneRow)
+            allRows.append(oneRow)
+            oneRow = []
 
-        print("levelArray: ", levelArray)
+        return allRows
 
 
-root = TreeNode(1)
-root.left = TreeNode(2)
-root.right = TreeNode(3)
+root = None
+# root.left = TreeNode(9)
+# root.right = TreeNode(20)
+# root.right.left = TreeNode(15)
 obj = Solution()
-obj.levelOrder(root)
+ans = obj.levelOrder(root)
+print(ans)
