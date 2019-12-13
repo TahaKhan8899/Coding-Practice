@@ -17,7 +17,7 @@ class Solution():
         currentRoman = s[charIndex]
         nextRoman = ''
 
-        # if in at the end or beginnning, there is a nextRoman
+        # if at the end or beginnning, there is a nextRoman
         if charIndex < len(s)-1 and charIndex > -1:
             nextRoman = s[charIndex+1]
 
@@ -37,7 +37,7 @@ class Solution():
     return romanSum
 
     
-n = 'II'
+n = 'MCMXCIV'
 ans = Solution().romanToInt(n)
-print(ans)
+print("Final answer: ", ans)
 # 1910
