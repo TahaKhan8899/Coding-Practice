@@ -1,28 +1,29 @@
-class minStack(object):
-  def __init__(!
- self):
-    this.stk = []
+class MinStack:
 
-  def push(self, x):
-    # Fill this in.
+    def __init__(self):
+        self.stk = []
 
-  def pop(self):
-    # Fill this in.
+    def push(self, x):
+        self.stk.append(x)
 
-  def top(self):
-    # Fill this in.
+    def pop(self):
+        self.stk = self.stk[:len(self.stk)-1]
 
-  def getMin(self):
-    # Fill this in.
+    def top(self):
+        return self.stk.pop(len(self.stk)-1)
 
-x = minStack()
-x.push(-2)
-x.push(0)
-x.push(-3)
-print(x.getMin())
-# -3
-x.pop()
-print(x.top())
-# 0
-print(x.getMin())
-# -2
+    def getMin(self):
+        tmpStk = [a for a in self.stk]
+        tmpStk.sort()
+        return tmpStk[0]
+
+
+# Your MinStack object will be instantiated and called as such:
+minStack = MinStack()
+minStack.push(-2)
+minStack.push(0)
+minStack.push(-3)
+print(minStack.getMin())
+minStack.pop()
+print(minStack.top())
+print(minStack.getMin())
