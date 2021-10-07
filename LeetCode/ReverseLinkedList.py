@@ -1,35 +1,31 @@
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
+    def reverseList(self, head):
+        # if head.next = None:
+        #     return head
+        # currentNode = head
+        # while head.next != None:
+        #     currentNodeCopy = currentNode
+        #     currentNode.next =
+        p = None
+        c = head
+        n = head.next
 
-        # algo:
-        # make a copy of shiftNode
-        # Make original shift node point to head
-        # next shift node is next of shiftNodeCopy
+        while n != None:
+            c.next = p
+            p = c
+            c = n
+            n = n.next
 
-        # print(head.val)
-        # print(head.next.val)
-        if head.next == None:
-            print("log")
-            return
+        c.next = p
 
-        shiftNodeOriginal = head.next
-        print(shiftNodeOriginal.next.val)
-        shiftNodeCopy = shiftNodeOriginal
-        shiftNodeOriginal.next = head
-        print(shiftNodeOriginal.val)
-        head.next = shiftNodeCopy.next
-        print(head.next.next.val)
-
-        # print(head.val)
-        # print(head.next.val)
-        # self.reverseList(head.next)
+        return c
 
 
 a1 = ListNode(1)
@@ -40,5 +36,8 @@ a1.next = a2
 a2.next = a3
 a3.next = a4
 a4.next = None
-obj = Solution()
-obj.reverseList(a1)
+ans = Solution().reverseList(a1)
+c = ans
+while c != None:
+    print(c.val)
+    c = c.next
